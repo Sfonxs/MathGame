@@ -212,6 +212,11 @@ var app = {
                 alert("The answer of " + result.foundResult + " is NOT correct.");
             }
         });
+        $('#btnReset').on('click', function (e) {
+            e.preventDefault();
+            app.init();
+        });
+        this.compareCurrentHighscoreWithHighscoreInLocalDataAndChangeHighscoreOnScreenAccordingly();
         var lstOuputs = $('#lstOutputs');
         var lstInputs = $('#lstInputs');
         lstInputs.add(lstOuputs).on('mousedown', 'li', function (event) {
@@ -339,6 +344,7 @@ var app = {
         $('#operators').text(opts[0] + " ["+ opts[1].toString()+"]");
     },
     startNextProb: function () {
+        this.compareCurrentHighscoreWithHighscoreInLocalDataAndChangeHighscoreOnScreenAccordingly();
         this.level++;
         var details = Levels[this.level];
         if (details){
@@ -346,8 +352,19 @@ var app = {
         }
         this.currentProb = new MathProb(this.levelDetails);
         this.currentProbToHtml();
-    }
+    },
+    compareCurrentHighscoreWithHighscoreInLocalDataAndChangeHighscoreOnScreenAccordingly:  function(){
+            if(!localStorage.highscore){
+                localStorage.highscore = 0;
+            }
+            else if(localStorage.highscore < app.level){
+                localStorage.highscore = app.level;
+            }
+            $("#highscoreValue").text(localStorage.highscore);
+        }
+
 };
+
 
 $(document).ready(function () {
     app.init();
