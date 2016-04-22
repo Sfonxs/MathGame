@@ -216,7 +216,7 @@ var app = {
             e.preventDefault();
             app.init();
         });
-        this.compareCurrentHighscoreWithHighscoreInLocalDataAndChangeHighscoreOnScreenAccordingly();
+        this.checkAndUpdateHighscore();
         var lstOuputs = $('#lstOutputs');
         var lstInputs = $('#lstInputs');
         lstInputs.add(lstOuputs).on('mousedown', 'li', function (event) {
@@ -344,7 +344,7 @@ var app = {
         $('#operators').text(opts[0] + " ["+ opts[1].toString()+"]");
     },
     startNextProb: function () {
-        this.compareCurrentHighscoreWithHighscoreInLocalDataAndChangeHighscoreOnScreenAccordingly();
+        this.checkAndUpdateHighscore();
         this.level++;
         var details = Levels[this.level];
         if (details){
@@ -353,7 +353,7 @@ var app = {
         this.currentProb = new MathProb(this.levelDetails);
         this.currentProbToHtml();
     },
-    compareCurrentHighscoreWithHighscoreInLocalDataAndChangeHighscoreOnScreenAccordingly:  function(){
+    checkAndUpdateHighscore:  function(){
             if(!localStorage.highscore){
                 localStorage.highscore = 0;
             }
