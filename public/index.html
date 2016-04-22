@@ -23,16 +23,22 @@
             <li class="staticBox" id="resultNumber"></li>
         </ul>
     </div>
+    <div id="floatleft">
     <form>
-        <input id="btnSubmit" type="submit" value="Check Solution">
+        <input id="btnSubmit" class="button" type="submit" value="Check Solution">
+        <input id="btnReset" class="button" type="submit" value="Reset">
     </form>
+    </div>
+    <div id="highscore">
+        Highscore: <span id="highscoreValue"> </span>
+    </div>
     <div id="details">
         <p>Level: <span id="level"></span></p>
         <p>Numbers: <span id="numbers"></span></p>
         <p>Operators: <span id="operators"></span></p>
     </div>
     <div>
-        <p>Game made by Sven Dedeene and translations by Alexander Van Damme en Xander Berkein, in memory of Ruben Vermeulen</p>
+        <p>Game made by Sven Dedeene and Xander Berkein and translations by Alexander Van Damme, in memory of Ruben Vermeulen</p>
     </div>
 </div>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
