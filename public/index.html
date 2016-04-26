@@ -4,39 +4,57 @@
     <meta charset="UTF-8">
     <title>Math Game</title>
     <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div id="container">
-    <p>In this game you have to solve a mathematical problem. Drag the numbers and operators so the equation is right. The longer you play, the harder it gets. Can you solve them all?</p>
+    <div class="info item">
+        <h1>Math Game</h1>
+        <p>In this game you have to solve a mathematical problem. Drag the numbers and operators so the equation is right. The longer you play, the harder it gets. Can you solve them all?</p>
+    </div>
 
-    <div class="drag-area clearfix droppable">
-        <ul id="lstInputs">
+    <div class="item bg-white">
+        <h1>Good luck</h1>
+        <div class="drag-area clearfix droppable">
+            <ul id="lstInputs"></ul>
+        </div>
+        <div class="drag-area clearfix">
+            <ul id="lstOutputs"></ul>
+            <ul>
+                <li class="staticBox">=</li>
+                <li class="staticBox" id="resultNumber"></li>
+            </ul>
+        </div>
 
-        </ul>
+        <form>
+            <input id="btnSubmit" class="button" type="submit" value="Check Solution">
+            <input id="btnReset" class="button" type="submit" value="Reset">
+        </form>
     </div>
-    <div class="drag-area clearfix">
-        <ul id="lstOutputs">
 
-        </ul>
-        <ul>
-            <li class="staticBox">=</li>
-            <li class="staticBox" id="resultNumber"></li>
-        </ul>
+    <div class="item bg-white">
+        <h1>Statistics</h1>
+
+        <table class="stats">
+            <tr>
+                <th>Highscore:</th>
+                <td><span id="highscoreValue"></span></td>
+            </tr>
+            <tr>
+                <th>Level:</th>
+                <td><span id="level"></span></td>
+            </tr>
+            <tr>
+                <th>Numbers:</th>
+                <td> <span id="numbers"></span></td>
+            </tr>
+            <tr>
+                <th>Operators:</th>
+                <td><span id="operators"></span></td>
+            </tr>
+        </table>
     </div>
-    <div id="floatleft">
-    <form>
-        <input id="btnSubmit" class="button" type="submit" value="Check Solution">
-        <input id="btnReset" class="button" type="submit" value="Reset">
-    </form>
-    </div>
-    <div id="highscore">
-        Highscore: <span id="highscoreValue"> </span>
-    </div>
-    <div id="details">
-        <p>Level: <span id="level"></span></p>
-        <p>Numbers: <span id="numbers"></span></p>
-        <p>Operators: <span id="operators"></span></p>
-    </div>
+
     <div>
         <p>Game made by Sven Dedeene and Xander Berkein and translations by Alexander Van Damme, in memory of Ruben Vermeulen</p>
     </div>
