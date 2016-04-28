@@ -210,7 +210,7 @@ var app = {
                 alert("The answer of " + result.foundResult + " is correct!");
                 app.startNextProb();
             } else {
-                app.lives = app.lives - 1;
+                app.lives--;
                 $("#lives").text(app.lives);
                 if (app.lives == 0) {
                     alert("The answer of " + result.foundResult + " is NOT correct. You lose!");
@@ -360,6 +360,7 @@ var app = {
         var opts = Levels[this.level];
         $('#numbers').text(opts[2] + "-"+opts[3]);
         $('#operators').text(opts[0] + " ["+ opts[1].toString()+"]");
+        $("#lives").text(app.lives);
     },
     startNextProb: function () {
         this.checkAndUpdateHighscore();
