@@ -194,6 +194,7 @@ var app = {
     draggedElemOffset: undefined,
     isDraggedElemDragged: false,
     level: 0,
+    lives: 5,
     levelDetails: undefined,
     init: function () {
         $('#btnSubmit').on('click', function (e) {
@@ -209,12 +210,20 @@ var app = {
                 alert("The answer of " + result.foundResult + " is correct!");
                 app.startNextProb();
             } else {
-                alert("The answer of " + result.foundResult + " is NOT correct.");
+                app.lives = app.lives - 1;
+                console.log(app.lives);
+                $("#lives").text(app.lives);
+                if (app.lives == 0) {
+                    alert("The answer of " + result.foundResult + " is NOT correct. You lose!");
+                    app.reset();
+                } else {
+                    alert("The answer of " + result.foundResult + " is NOT correct. You have " + app.lives + " lives left.");
+                }
             }
         });
         $('#btnReset').on('click', function (e) {
             e.preventDefault();
-            app.init();
+            app.reset();
         });
         this.checkAndUpdateHighscore();
         var lstOuputs = $('#lstOutputs');
@@ -326,6 +335,16 @@ var app = {
             $(this).removeClass('hovered');
         });
         this.startNextProb();
+    },
+    reset: function () {
+        this.level = 1;
+        this.lives = 5;
+        var details = Levels[this.level];
+        if (details) {
+            this.levelDetails = details;
+        }
+        this.currentProb = new MathProb(this.levelDetails);
+        this.currentProbToHtml();
     },
     currentProbToHtml: function () {
         var lstInputs = $('#lstInputs');
