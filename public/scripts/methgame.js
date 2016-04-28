@@ -211,7 +211,6 @@ var app = {
                 app.startNextProb();
             } else {
                 app.lives = app.lives - 1;
-                console.log(app.lives);
                 $("#lives").text(app.lives);
                 if (app.lives == 0) {
                     alert("The answer of " + result.foundResult + " is NOT correct. You lose!");
