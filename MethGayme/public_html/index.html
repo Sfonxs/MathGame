@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Math Game</title>
+    <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <p>In this game you have to solve a mathematical problem. Drag the numbers and operators so the equation is right. The longer you play, the harder it gets. Can you solve them all?</p>
+
+    <div class="drag-area clearfix droppable">
+        <ul id="lstInputs">
+
+        </ul>
+    </div>
+    <div class="drag-area clearfix">
+        <ul id="lstOutputs">
+
+        </ul>
+        <ul>
+            <li class="staticBox">=</li>
+            <li class="staticBox" id="resultNumber"></li>
+        </ul>
+    </div>
+    <form>
+        <input id="btnSubmit" type="submit" value="Check Solution">
+    </form>
+    <div id="details">
+        <p>Level: <span id="level"></span></p>
+        <p>Numbers: <span id="numbers"></span></p>
+        <p>Operators: <span id="operators"></span></p>
+        <p>Lives left: <span id="lives"></span></p>
+        
+    </div>
+    <div>
+        <p>Game made by Sven Dedeene and translations by Alexander Van Damme en Xander Berkein, in memory of Ruben Vermeulen</p>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="scripts/methgame.js"></script>
+</body>
+</html>
